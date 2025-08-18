@@ -42,13 +42,27 @@ namespace AtividadeTito
         public void EmprestarMaterial()
         {
 
+            Console.WriteLine("Digite o ID do material que deseja emprestar:");
+            int id = int.Parse(Console.ReadLine());
+
+            var material = MaterialBiblioteca.FirstOrDefault(m => m.IdMaterial == id);
+
+            if (material == null)
+            {
+                Console.WriteLine("Material não encontrado.");
+                return;
+            }
+
+            if (!material.DisponibilidadeMaterial)
+            {
+                Console.WriteLine("Material indisponível para empréstimo.");
+                return;
+            }
+
+            //Material disponível, então podemos emprestar
+            material.DisponibilidadeMaterial = false;
+            Console.WriteLine($"Material '{material.Titulo}' emprestado com sucesso!");
         }
-
-
-
-
-
-
 
         public void MenuBiblioteca()
         {
@@ -58,7 +72,7 @@ namespace AtividadeTito
             while (continuar)
             {
                 Console.WriteLine("Olá, você está dentro do menu da Biblioteca! O'que deseja fazer agora?: ");
-                Console.WriteLine("1 - Realizar Empréstimo de um material \n");
+                Console.WriteLine("1 - Adicionar nome de um material \n");
                 Console.WriteLine("2 - Listar todos os materiais \n");
                 Console.WriteLine("3 - Buscar material por título \n");
                 Console.WriteLine("4 - Emprestar material \n");
@@ -70,7 +84,15 @@ namespace AtividadeTito
                 switch (RespostaUser)
                 {
                     case "1":
-                        EmprestarMaterial();
+                        AdicionarMaterial();
+                        break;
+
+                        case "2":
+                            Console.WriteLine("Lista de Materiais: ");
+                            foreach (var material in MaterialBiblioteca)
+                            {
+                                material.ExibirInformacoes();
+                        }
                         break;
                     case "6":
                         continuar = false;

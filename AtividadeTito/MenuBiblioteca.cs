@@ -8,6 +8,7 @@ namespace AtividadeTito
 {
     public class MenuBiblioteca
     {
+        Biblioteca biblioteca = new Biblioteca();
         public void ExecutarMenuBiblioteca()
         {
             while (true)
@@ -28,6 +29,8 @@ namespace AtividadeTito
                     if (respostaUser == "S")
                     {
                         Console.WriteLine("Biblioteca iniciada!");
+                        biblioteca.MenuBiblioteca();
+
                         break;
                     }
                     else if (respostaUser == "N")
