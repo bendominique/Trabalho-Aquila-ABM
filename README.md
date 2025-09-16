@@ -9,7 +9,10 @@ Este projeto é uma aplicação desenvolvida em **C#** que simula um sistema de 
 - **Benjamin Dominique Makangwa**  
 - GitHub: [@bendominique](https://github.com/bendominique)
 
----
+- **Arthur Fernandes**
+- GitHub: [@arthurfxd](https://github.com/arthurfxd)
+- **Miguel de Souza** 
+--- GitHub: [@Migue1Correia](https://github.com/Migue1Correia) 
 
 ## 💡 Funcionalidades
 
